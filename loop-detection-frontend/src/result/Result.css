@@ -1,0 +1,40 @@
+.result{
+    background-color: transparent;
+    position: absolute;
+    border-radius: 15px;
+    opacity: 0.7;
+    color: black;
+    border-style: solid;
+    border-color: lavender;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.message {
+    font-family: Cairo;
+    text-transform: uppercase;
+}
+
+.message {
+    width: min-content;
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+            typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 25% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: black; }
+}
