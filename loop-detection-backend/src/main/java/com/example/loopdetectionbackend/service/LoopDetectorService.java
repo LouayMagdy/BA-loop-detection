@@ -96,4 +96,5 @@ public class LoopDetectorService {
         this.sccTarjanGetter = new SCCTarjanGetter();
         return loops;
     }
+
 }
