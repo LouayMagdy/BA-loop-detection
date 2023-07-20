@@ -37,3 +37,10 @@
     margin: 0 10px;
     font-family: Cairo;
 }
+.isFound{
+    font-family: Cairo;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: xx-large;
+}
