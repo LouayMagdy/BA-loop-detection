@@ -35,20 +35,26 @@ export default function Result(props){
 
             const nodes = new DataSet(nodesArray);
             const edges = new DataSet(edgesArrayWithData);
-            console.log(nodes, edges)
-
             const data = { nodes, edges };
             const options = {};
 
             new Network(graphRef.current, data, options);
         }
+
     }, [props.loops, index]);
 
         return <div className={"result"} style={{bottom: 20, width: window.innerWidth / 2 - 30, left: window.innerWidth / 2 + 15, top: 20}}>
-            <div ref={graphRef} className={'graph'} style={{paddingTop: window.innerHeight / 3}} />
             {
-                props.state === 'processed'?
-                    <div className={"paging-container"}>
+                props.state === 'processed' && props.loops.length === 0?
+                    <div className={'isFound'} style={{paddingTop: window.innerHeight / 3}} > No Loops Found </div> : null
+            }
+            {
+                props.state === 'processed' && props.loops.length !== 0?
+                <div ref={graphRef} className={'graph'} style={{paddingTop: window.innerHeight / 3}} /> : null
+            }
+            {
+                props.state === 'processed' && props.loops.length !== 0?
+                    <div className={"paging-container"} >
                         <button className={'paging-button'} onClick={decrement} disabled={index === 0}>Prev</button>
                         <span className={'paging-page-number'}>{index + 1}/{props.loops.length}</span>
                         <button className={'paging-button'} onClick={increment} disabled={index >= props.loops.length - 1}>Next</button>

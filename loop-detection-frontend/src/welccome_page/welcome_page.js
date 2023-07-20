@@ -21,13 +21,11 @@ export default function Welcome_page(){
         csvData.forEach(function (edge){
             edge.forEach(function (node){
                 if(!(node in dict)) {
-                    console.log(node, counter);
                     dict[node] = counter++
                 }
             })
             numericEdges.push([dict[edge[0]], dict[edge[1]]])
         })
-        console.log(dict)
         dict = reverseMap(dict)
         await fetch("http://localhost:8080/loop-detection-server/detect",{
             method: "POST",
@@ -35,9 +33,7 @@ export default function Welcome_page(){
             body: JSON.stringify({"edges": numericEdges})
         }).then(response => response.json())
             .then(data => {
-                console.log(data.loops, dict)
                 let loops = data.loops.map( loop => loop.map(e => dict[e]))
-                console.log(loops)
                 for (let i = 0; i < loops.length; i++) {
                     const result = [];
                     for (let j = 0; j < loops[i].length - 1; j++) {
