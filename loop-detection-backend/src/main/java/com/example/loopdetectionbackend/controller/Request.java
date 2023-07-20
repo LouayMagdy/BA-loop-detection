@@ -7,5 +7,4 @@ import lombok.Data;
 @AllArgsConstructor
 public class Request {
     int[][] edges;
-    int nodesNum;
 }

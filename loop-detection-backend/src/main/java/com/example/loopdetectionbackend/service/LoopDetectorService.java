@@ -1,34 +1,92 @@
 package com.example.loopdetectionbackend.service;
 
-import com.example.loopdetectionbackend.controller.Request;
+import lombok.Getter;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
+@Getter
 public class LoopDetectorService {
-    private List<List<Integer>> adjList;
-    private State[] states;
+    private GraphFactory graphFactory;
+    private SCCTarjanGetter sccTarjanGetter;
 
-    public int[] detectLoop(Request request){
-        this.setAdjList(request.getNodesNum(), request.getEdges());
-        this.setStates(request.getNodesNum());
+    private Stack<Integer> stack;
+    private Set<Integer> blockedSet;
+    private Map<Integer, Set<Integer>> blockedMap;
 
+    private Map<Integer, Integer> node_component;
+    private Map<Integer, List<Integer>> adjList;
+
+    private List<List<Integer>> loops;
+
+    private int startIndex;
+
+
+    public LoopDetectorService() {
+        this.graphFactory = new GraphFactory();
+        this.sccTarjanGetter = new SCCTarjanGetter();
+        this.loops = new ArrayList<>();
     }
 
-    private void getSCC(){}
+    public void getLoops(int[][] edges){
+        this.graphFactory.makeGraph(edges);
+        this.adjList = this.graphFactory.getAdjList();
+        if(this.adjList.size() == 0) return;
+        System.out.println(this.adjList);
+        this.sccTarjanGetter.getSSCs(this.adjList);
+        this.node_component = this.sccTarjanGetter.getNode_component();
+        if(node_component.size() == 0) return;
 
-    private void applyJohnsonAlgorithm(){}
+        this.startIndex = this.sccTarjanGetter.getMinSCCItem();
+        this.graphFactory.setNodeToNeglect(startIndex);
 
-    private void setAdjList(int nodesNum, int[][] edges){
-        this.adjList = new ArrayList<>();
-        for (int i = 0; i < nodesNum; i++) this.adjList.add(new ArrayList<>());
-        for(int[] edge : edges) this.adjList.get(edge[0]).add(edge[1]);
+        this.stack = new Stack<>();
+        this.blockedSet = new HashSet<>();
+        this.blockedMap = new HashMap<>();
+        findLoop(this.startIndex);
+        getLoops(edges);
     }
 
-    public void setStates(int nodesNum) {
-        this.states = new State[nodesNum];
-        for (int i = 0; i < nodesNum; i++) this.states[i] = State.Unprocessed;
+    private boolean findLoop(int node){
+        boolean loopFound = false;
+        this.stack.add(node);
+        this.blockedSet.add(node);
+
+        List<Integer> neighbors = this.adjList.get(node);
+        for (Integer neighbor : neighbors) {
+            if(!Objects.equals(this.node_component.get(node), this.node_component.get(neighbor))) continue;
+            if(neighbor == this.startIndex){
+                this.stack.push(this.startIndex);
+                List<Integer> loop = new ArrayList<>();
+                loop.addAll(this.stack);
+                this.stack.pop();
+                this.loops.add(loop);
+                loopFound = true;
+            }
+            else if (!this.blockedSet.contains(neighbor)) {
+                boolean anotherLoop = findLoop(neighbor);
+                loopFound = loopFound || anotherLoop;
+            }
+        }
+        if(loopFound) this.unBlock(node);
+        else{
+            for (Integer neighbor: neighbors) {
+                Set<Integer> blocked = blockedMap.getOrDefault(neighbor, new HashSet<>());
+                blocked.add(node);
+                if(blocked.size() == 1) blockedMap.put(neighbor, blocked);
+            }
+        }
+        stack.pop();
+        return loopFound;
+    }
+
+    private void unBlock(int node){
+        this.blockedSet.remove(node);
+        Set<Integer> blockedDueToNode = this.blockedMap.get(node);
+        if(blockedDueToNode == null) return;
+        for (Integer blocked: blockedDueToNode) {
+            if(blockedDueToNode.contains(blocked)) unBlock(blocked);
+        }
     }
 }
