@@ -33,7 +33,6 @@ public class LoopDetectorService {
         this.graphFactory.makeGraph(edges);
         this.adjList = this.graphFactory.getAdjList();
         if(this.adjList.size() == 0) return;
-        System.out.println(this.adjList);
         this.sccTarjanGetter.getSSCs(this.adjList);
         this.node_component = this.sccTarjanGetter.getNode_component();
         if(node_component.size() == 0) return;

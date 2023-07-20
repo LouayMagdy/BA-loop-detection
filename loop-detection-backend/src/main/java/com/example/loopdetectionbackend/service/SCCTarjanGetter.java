@@ -76,7 +76,6 @@ public class SCCTarjanGetter {
                 stackArr[n] = false;
             }
             if(scc.size() > 1){
-                System.out.println(scc);
                 for (Integer v: scc) {
                     this.minSCCItem = Math.min(this.minSCCItem, v);
                     this.node_component.put(v, this.sccCount);
