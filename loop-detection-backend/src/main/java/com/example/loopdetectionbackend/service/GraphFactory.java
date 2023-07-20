@@ -26,4 +26,16 @@ public class GraphFactory {
         }
     }
 
+    public List<List<Integer>> getSelfLoops(int[][] edges){
+        List<List<Integer>> selfLoops = new ArrayList<>();
+        for (int[] edge: edges) {
+            if (edge[0] == edge[1]){
+                List<Integer> selfLoop = new ArrayList<>();
+                selfLoop.add(edge[0]);
+                selfLoop.add(edge[1]);
+                selfLoops.add(selfLoop);
+            }
+        }
+        return selfLoops;
+    }
 }

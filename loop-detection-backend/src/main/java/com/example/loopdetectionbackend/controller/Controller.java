@@ -1,5 +1,6 @@
 package com.example.loopdetectionbackend.controller;
 
+import com.example.loopdetectionbackend.service.GraphFactory;
 import com.example.loopdetectionbackend.service.LoopDetectorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -21,7 +22,7 @@ public class Controller {
     public ResponseEntity<Response> detectLoops(@RequestBody Request request){
         for(int[] edge: request.edges) System.out.println(Arrays.toString(edge));
         System.out.println();
-        this.loopDetectorService.setLoops(new ArrayList<>());
+        this.loopDetectorService.setLoops(new GraphFactory().getSelfLoops(request.edges));
         this.loopDetectorService.getLoops(request.edges);
         return ResponseEntity.status(HttpStatus.OK).body(new Response(loopDetectorService.getLoops()));
     }
