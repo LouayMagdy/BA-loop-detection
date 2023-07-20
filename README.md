@@ -5,7 +5,7 @@ A basic starting prototype for loop detection and sketching using springboot and
 # Agenda
 - [Backend Section](#backend-section)
 - [Frontend Section](#frontend-section)
-- [Sample Example](#sample-example)
+- [Sample Examples](#sample-examples)
 
 <a name="-backend-section"></a>
 ## Backend Section
@@ -32,7 +32,7 @@ It is composed of parent page implemented in [Welcome_page](./loop-detection-fro
   - Pagination buttons to view other loops
     
 <a name="-sample-example"></a>
-## Sample Example
+## Sample Examples
 You can find 3 test samples in [tests](./loop-detection-frontend/src/test/), let's try to upload each of them:
 1) Uploading [test.csv](./loop-detection-frontend/src/test/test.csv/)
 ![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/5a6aaf0e-767a-4f21-b6b5-dc50c053f2dc)
