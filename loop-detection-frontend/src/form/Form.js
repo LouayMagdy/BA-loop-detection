@@ -28,6 +28,7 @@ export default function Form(props){
                     <li> Allowed format is CSV only. </li>
                     <li> The CSV file should only have 2 columns: A for source, B for destination. </li>
                     <li> Do not give names to columns or titles will be considered as nodes. </li>
+                    <li> Rows of the csv files have to be comma separated without spaces.</li>
                 </ul>
             </div>
 
