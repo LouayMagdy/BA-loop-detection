@@ -6,35 +6,34 @@
     color: black;
     border-style: solid;
     border-color: lavender;
+    display: block;
+}
+
+.paging-container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
-.message {
+
+.paging-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 5px;
     font-family: Cairo;
-    text-transform: uppercase;
 }
 
-.message {
-    width: min-content;
-    overflow: hidden;
-    border-right: .15em solid black;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation:
-            typing 3.5s steps(40, end),
-            blink-caret .75s step-end infinite;
+.paging-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
-/* The typing effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 25% }
-}
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: black; }
+.paging-page-number {
+    font-size: 1.2rem;
+    margin: 0 10px;
+    font-family: Cairo;
 }

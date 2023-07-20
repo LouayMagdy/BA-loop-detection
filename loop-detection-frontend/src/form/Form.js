@@ -8,10 +8,11 @@ export default function Form(props){
     const handleButtonClick = event => {hiddenFileInput.current.click();};
     const handleFileUpload = async (event) => {
         const fileUploaded = event.target.files[0];
+        if(fileUploaded === undefined) return
         props.updateState("processing...")
         const text = await fileUploaded.text();
         let rows = text.split('\n');
-        rows = rows.map(str => str.replace(/\r/g, '').split(', '))
+        rows = rows.map(str => str.replace(/\r/g, '').split(','))
         props.updateCSV(rows)
     };
 

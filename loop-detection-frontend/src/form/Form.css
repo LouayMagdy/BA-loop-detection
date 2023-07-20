@@ -41,6 +41,11 @@
     cursor: pointer;
 }
 
+.upload-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 .upload-button:hover {
     background-color: #3e8e41;
 }
