@@ -1,12 +1,14 @@
 package com.example.loopdetectionbackend.service;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 @Service
 @Getter
+@Setter
 public class LoopDetectorService {
     private GraphFactory graphFactory;
     private SCCTarjanGetter sccTarjanGetter;
@@ -87,5 +89,11 @@ public class LoopDetectorService {
         for (Integer blocked: blockedDueToNode) {
             if(blockedDueToNode.contains(blocked)) unBlock(blocked);
         }
+    }
+
+    public List<List<Integer>> getLoops() {
+        this.graphFactory = new GraphFactory();
+        this.sccTarjanGetter = new SCCTarjanGetter();
+        return loops;
     }
 }
