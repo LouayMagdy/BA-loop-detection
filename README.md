@@ -15,6 +15,7 @@ The backend Logic flows as follows:
 - **_Johnson's Algorithm_ Implementation** to find all graph cycles. The algorithm works as follows:
     1) Getting all SCCs of sizes > 1 using **Tarjan's Algorithm** ... implemented in [SCCTarjanGetter class](./loop-detection-backend/src/main/java/com/example/loopdetectionbackend/service/SCCTarjanGetter.java/)
     2) Getting loops from SCCs starting with least-number-vertex ... implemented in [LoopDetectorService Class](./loop-detection-backend/src/main/java/com/example/loopdetectionbackend/service/LoopDetectorService.java/)
+    3) Re-form the graph again neglecting the start index and repeat the above two steps ... implemented in [LoopDetectorService Class](./loop-detection-backend/src/main/java/com/example/loopdetectionbackend/service/LoopDetectorService.java/)
 - find more about _Johnson's Algorithm_ [here](https://www.cs.tufts.edu/comp/150GA/homeworks/hw1/Johnson%2075.PDF)
 
 <a name="-frontend-section"></a>
