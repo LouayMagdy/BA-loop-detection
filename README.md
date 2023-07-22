@@ -36,20 +36,21 @@ You can find 3 test samples in [tests](./loop-detection-frontend/src/test/), let
 1) Uploading [test.csv](./loop-detection-frontend/src/test/test.csv/)
    
 ![image](https://github-production-user-asset-6210df.s3.amazonaws.com/95547833/255023037-5a6aaf0e-767a-4f21-b6b5-dc50c053f2dc.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230722T121438Z&X-Amz-Expires=300&X-Amz-Signature=84c25e8b032eaceb88979480c4736a02b4612277d2d509f31b80164c12a7992f&X-Amz-SignedHeaders=host&actor_id=95547833&key_id=0&repo_id=668342181)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/237ce310-7208-483a-918b-aa67dc0b5edd)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/57b241dc-41f5-4fbe-94ad-a1e769c72269)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/e842d88d-1c3e-44c9-94cd-8b44f4dfee9e)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/22dd9991-c62d-4496-b746-8dcc8ccc8d5d)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/07f62787-1c58-465b-9722-c8320664e020)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/8c11c9fa-00b3-4239-aaea-c200d7c12c14)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/0659e2b5-f1b1-45ad-961f-735d0b1bf539)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/8f1d509a-6895-4c0f-b281-3c32758990e9)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/aa4709e0-fade-43e6-b420-e0f161b1fe92)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/f47516f8-4279-42e7-bf52-471915ff8569)
+
 
 2) Uploading [test2.csv](./loop-detection-frontend/src/test/test2.csv/)
 
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/c7b8b59f-e420-44ed-83c4-4469a3a0c8fa)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/2e4b24bb-1021-44da-b5b4-02dd5a0c5f03)
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/7cf1add1-7503-4597-8347-b9a05eace00f)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/ac44a443-8f62-46c2-af51-5554357c68e8)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/b0fab068-cdbf-4fdc-804f-c681a7fc4fe5)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/a822e07b-2e4f-4dbb-96ed-38d407b4d65f)
 
 3) Uploading [tes3.csv](./loop-detection-frontend/src/test/tes3.csv/)
 
-![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/9025d91b-5f8d-49fe-949d-5ab05043a993)
+![image](https://github.com/LouayMagdy/BA-loop-detection/assets/95547833/f97fa496-eaf4-474a-89e2-9cd948c99d3d)
 
 
